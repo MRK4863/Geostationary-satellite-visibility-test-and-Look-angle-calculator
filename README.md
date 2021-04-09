@@ -1,2 +1,2 @@
 # LTTS_project
-Satellite visibility test and Look angle calculator
+Geostationary-Satellite visibility test and Look angle calculator
