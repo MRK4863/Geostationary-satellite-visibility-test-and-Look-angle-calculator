@@ -1,5 +1,4 @@
 
-
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
@@ -81,7 +80,7 @@ void main()
     scanf("%f", &e_lat);
     printf("\nEnter the Hemisphere of the EARTH_STATION (N/S): ");
     scanf("%c", &e_lat_dirn);
-    
+
     e_lat_dirn = toupper(e_lat_dirn);
     printf("\nEnter the LONG of EARTH_STATION (if west, enter the angle in negative): ");
     scanf("%f", &e_long);
