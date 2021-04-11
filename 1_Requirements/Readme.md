@@ -20,11 +20,9 @@ Azimuth Angle
 
 The angle between local horizontal plane and the plane passing through earth station, satellite and center of earth is called as azimuth angle.
 
-The formula for Azimuth angle (α
+The formula for Azimuth angle (α) is
 
-) is
-
-α=1800+Tan−1(TanGTanL)
+α=180+aTan(Tan(G)/Tan(L))
 
 Where,
 
