@@ -4,7 +4,7 @@
 * This program provides us an application oriented software, that helps identify the look angles at which an antenna at the earth station should be oriented to in order for best signal reception from the satellite
 
 ## Research
-#Look Angles
+### Look Angles
 
 The following two angles of earth station antenna combined together are called as look angles.
 
@@ -30,7 +30,19 @@ Where,
 
 *    G is the difference between position of satellite orbit and earth station antenna.
 
+Measure the horizontal angle at earth station antenna to north pole as shown in figure. It represents azimuth angle. It is used to track the satellite horizontally.
+### Elevation Angle
+
+The angle between vertical plane and line pointing to satellite is known as Elevation angle. Vertical plane is nothing but the plane, which is perpendicular to horizontal plane.
+
+The formula for Elevation angle (β) is
+
+
+
+We can calculate the elevation angle by using above formula. The following figure illustrates the elevation angle.
+
 The following figure illustrates the azimuth angle.
+
 ## Cost and Features with Time 
 | Time | Feature | Cost |
 | ----- | ----- | ----- |
