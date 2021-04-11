@@ -2,6 +2,7 @@
 
 //This is the first line of comments
 // it works
+// third line comments
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
