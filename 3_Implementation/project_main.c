@@ -78,14 +78,15 @@ char * read_database()
 void main()
 {
     float e_lat, e_long, s_lat, s_long, s_alt=35786, rs=6374, re,gamma, dist, elevation, azimuth;
-    char e_lat_dirn;
+    char e_lat_dirn, c;
     
     printf("\nEnter the LAT of EARTH_STATION : ");
     scanf("%f", &e_lat);
     printf("\nEnter the Hemisphere of the EARTH_STATION (N/S): ");
-    scanf("%c", &e_lat_dirn);
+    scanf("%c", &c);
 
-    e_lat_dirn = toupper(e_lat_dirn);
+    e_lat_dirn = (c);
+
     printf("\nEnter the LONG of EARTH_STATION (if west, enter the angle in negative): ");
     scanf("%f", &e_long);
 
