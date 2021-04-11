@@ -4,26 +4,35 @@
 * This program provides us an application oriented software, that helps identify the look angles at which an antenna at the earth station should be oriented to in order for best signal reception from the satellite
 
 ## Research
-### Patient Management Software System Features and Benefits
-A health care providers main aim is, caring for patients and the buildup of everyday tasks like paperwork, scheduling and billing can get in the way of that. What is patient management software anyway? A patient management system is also known as clinic management software, patient manager software, medical patient software or medical practice management software (MPM). It refers to a number of efficient automated systems designed for tracking patient information, diagnoses, prescriptions, interactions and encounters within healthcare organizations like medical clinics or hospitals.
+#Look Angles
 
-Some of these software applications focus on general patient management while others address specific processes such as inpatient tracking or blood testing. What they all have in common is that they make your job as a care provider smoother and more manageable.
+The following two angles of earth station antenna combined together are called as look angles.
 
-### Benefits
-This software can be used to find the look angles at any geographical location and the also gives us the lsit of satellites that are visible from the earth station.
+ *   Azimuth Angle
+ *   Elevation Angle
 
-### Better Vaccine Management
-A patient management app helps streamline every element of a medical office including recordkeeping, charting, patient scheduling, claims processing and billing functions.
+Generally, the values of these angles change for non-geostationary orbits. Whereas, the values of these angles don’t change for geostationary orbits. Because, the satellites present in geostationary orbits appear stationary with respect to earth.
 
-### Ease burden on staff
-Administrative staffing is one of the big drivers of high healthcare costs. Automating routine processes like patient flow management helps medical clinics and hospitals minimize their administrative expenses.
+These two angles are helpful in order to point at the satellite directly from the earth station antenna. So, the maximum gain of the earth station antenna can be directed at satellite.
 
-### Timely Patient Care
-Larger clinics and hospitals can enjoy similar benefits to smaller ones but have the added bonus of making patient-related processes more efficient. Because large practices have a heavy patient flow, the scheduling features of MPM is crucial to operations. Having an organized patient intake flow can mean the difference between a calm, orderly waiting room and a packed hotbed of irritation and frustration.
+We can calculate the look angles of geostationary orbit by using longitude & latitude of earth station and position of satellite orbit.
+Azimuth Angle
 
-### Organization
-Practice management software offers charting modules to keep patient data, charts, appointments and billing information together in a single digital file. Digital storage capability saves space for a neater, more welcoming office — not to mention less harried employees. 
+The angle between local horizontal plane and the plane passing through earth station, satellite and center of earth is called as azimuth angle.
 
+The formula for Azimuth angle (α
+
+) is
+
+α=1800+Tan−1(TanGTanL)
+
+Where,
+
+*    L is Latitude of earth station antenna.
+
+*    G is the difference between position of satellite orbit and earth station antenna.
+
+The following figure illustrates the azimuth angle.
 ## Cost and Features with Time 
 | Time | Feature | Cost |
 | ----- | ----- | ----- |
