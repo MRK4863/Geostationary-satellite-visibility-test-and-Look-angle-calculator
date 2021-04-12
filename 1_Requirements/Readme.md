@@ -52,21 +52,15 @@ The following figure illustrates the azimuth angle.
 | 1    |Elevation| O(1)  |
 
 ## Defining Our System
-### Certain assumptions:
-* Few systems already exists with which our system will interact
-    * Hospital Management Application
-    * Analytics System
-    * Emergency Services
-![Description](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/system.png)
+
 ### Explanation:
-* Patient Management Application have few inbuilt features like:
+* Geostationary satellite management system and Look-angle calculator Application have few inbuilt features like:
     * Read existing Geostationary satellite Database
     * Modify and add data to the Geostationary satellite Database 
-
-
+    * Calculate the look-angles for the antenna placed at an Earth-station
 
 ## SWOT ANALYSIS
-![SWOT Analysis](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/swot.png)
+![SWOT Analysis](https://github.com/MRK4863/LTTS_project/blob/main/1_Requirements/swot_analysis.png)
 
 # 4W&#39;s and 1&#39;H
 
