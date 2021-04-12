@@ -11,7 +11,7 @@ Folder             | Description
 
 |Build|Unit Test|cppcheck|Valgrind|Codacy|
 |:--:|:--:|:--:|:--:|:--:|
-|[![C/C++ CI](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml)|not issued|[![C/C++ CI](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml)|
+|[![C/C++ CI](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml)|not issued|[![Code Quality - Static Code - Cppcheck](https://github.com/MRK4863/LTTS_project/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/MRK4863/LTTS_project/actions/workflows/cppcheck.yml)|
 ## Contributors List and Summary
 
 SF Id.  |  Name            |    Features     | 
