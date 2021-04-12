@@ -103,9 +103,9 @@ struct Node* read_database()
     char *file_contents = malloc(1000*sizeof(char));
     while (fscanf(fp, "%[^\n] ", file_contents) != EOF)
     {
-        printf("\n%s", file_contents);
+        //printf("\n%s", file_contents);
         strcpy(temp, file_contents);
-        printf("\n%c", temp);
+        //printf("\n%c", temp);
         //printf("\n%d", strlen(temp));
 
         for(i=0;i<strlen(temp);i++)
@@ -135,9 +135,9 @@ struct Node* read_database()
                 }
         }
 
-        printf("\nspace_location : %d", loc);
-        printf("\nsat_name extracted : %s", s_name);
-        printf("\nlongitude extracted : %s", lat);
+        //printf("\nspace_location : %d", loc);
+        //printf("\nsat_name extracted : %s", s_name);
+        //printf("\nlongitude extracted : %s", lat);
 
         struct Node *t;
         t = (struct Node*)malloc(sizeof(struct Node));
@@ -165,7 +165,7 @@ void main()
     char e_lat_dirn, c;
     printf("\nEnter the Hemisphere of the EARTH_STATION (N/S): ");
     scanf("%c", &c);
-    e_lat_dirn = (c);
+    e_lat_dirn = toupper(c);
 
     printf("\nEnter the LAT of EARTH_STATION : ");
     scanf("%f", &e_lat);
@@ -187,19 +187,20 @@ void main()
         
         dist = sqrt(pow(rs,2)+pow(re,2)-2*re*rs*cos(gamma));
         
-        printf("\n\n\nSATELLITE %s IS BIENG PROCESSED............",h->sat_name);
-        printf("\n Visibility test : ");
+        printf("\n\n\n\nSATELLITE %s IS BIENG PROCESSED............",h->sat_name);
+        printf("\n\n Visibility test : ");
         if(visibility_test(gamma))
         {
-            printf("\nSATELLITE IS VISIBLE FROM THE EARTH_STAION");
+            printf("\nSatellite %s is VISIBLE from THE EARTH_STAION", h->sat_name);
             elevation = elevation_calc(dist, rs, gamma);
             azimuth = azimuth_calc(s_long, e_long, e_lat, 'N');
-            printf("\nelevation = %f degrees (from the horizon)", elevation);
-            printf("\nazimuth = %f degrees (clockwise from true-north)", azimuth);
+            printf("\nThe following are the parameters required by the EARTH_STAION antennae : ");
+            printf("\n\televation = %f degrees (from the horizon)", elevation);
+            printf("\n\tazimuth = %f degrees (clockwise from true-north)\n", azimuth);
             //printf("\ngamma = %f degrees", (rad_to_deg(gamma)));
         }
         else
-            printf("\nSatellite NOT within visible region");
+            printf("\nSatellite %s NOT VISIBLE from the EARTH_STATION\n", h->sat_name);
 
         h = h->next;
     }
