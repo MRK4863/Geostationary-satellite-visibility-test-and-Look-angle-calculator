@@ -6,7 +6,11 @@
 
 
 #define pi 3.142
-
+/**
+ * @brief 
+ * A dynamic linked list to read and store the 
+ * Names and Locations of various Geostationary satellites
+ */
 struct Node
 {
         char sat_name[100];
@@ -14,6 +18,11 @@ struct Node
         struct Node *next;
 };
 
+/**
+ * @brief 
+ * Displays the List of satellites available in the database
+ * @param n 
+ */
 void display(struct Node *n)
 {
     printf("SATELLITE_NAME\t\tLATITUDE");
@@ -24,6 +33,12 @@ void display(struct Node *n)
     }
 }
 
+/**
+ * @brief 
+ * Converts angles from Degrees to Radians
+ * @param deg 
+ * @return float 
+ */
 float deg_to_rad(float deg)
 {
     float rad;
@@ -32,6 +47,12 @@ float deg_to_rad(float deg)
     return rad;
 }
 
+/**
+ * @brief 
+ * Converts angles from Radian to Degrees
+ * @param rad 
+ * @return float 
+ */
 float rad_to_deg(float rad)
 {
     float deg;
@@ -40,6 +61,14 @@ float rad_to_deg(float rad)
     return deg;
 }
 
+/**
+ * @brief 
+ * Calculates the ELEVATION angle of the antennae placed at EARTH_STATION for best SIGNAL reception
+ * @param d 
+ * @param rs 
+ * @param g 
+ * @return float 
+ */
 float elevation_calc(float d, float rs, float g)
 {
     float el_rad, el_deg ;
@@ -49,6 +78,15 @@ float elevation_calc(float d, float rs, float g)
     return el_deg;
 }
 
+/**
+ * @brief 
+ * Calculates the AZIMUTH angle of the antennae placed at EARTH_STATION for best SIGNAL reception
+ * @param s_long 
+ * @param e_long 
+ * @param e_lat 
+ * @param e_lat_dir 
+ * @return float 
+ */
 float azimuth_calc(float s_long, float e_long, float e_lat, char e_lat_dir)
 {
     float intermediate_angle, diff;
@@ -77,6 +115,12 @@ float azimuth_calc(float s_long, float e_long, float e_lat, char e_lat_dir)
     }
 }
 
+/**
+ * @brief 
+ * Checks if the SATELLITE is visible from the EARTH_STATION 
+ * @param gamma 
+ * @return int 
+ */
 int visibility_test(float gamma)
 {
     if(rad_to_deg(gamma)<81.3)
@@ -84,7 +128,11 @@ int visibility_test(float gamma)
     else    
         return 0;
 }
-
+/**
+ * @brief 
+ * A function to read the satellite databse, store the values in a dynamic linked list and return the pointer to the HEAD of the Linked-List
+ * @return struct Node* 
+ */
 struct Node* read_database()
 {
     FILE * fp;
@@ -158,7 +206,11 @@ struct Node* read_database()
     }*/
 
 }
-
+/**
+ * @brief 
+ * The MAIN function
+ * It takes the location of EARTH_STATION from the user and displays the parameters of the satellites visible from the EARTH_STATION 
+ */
 void main()
 {
     float e_lat, e_long, s_lat, s_long, s_alt=35786, rs=6374, re,gamma, dist, elevation, azimuth;
