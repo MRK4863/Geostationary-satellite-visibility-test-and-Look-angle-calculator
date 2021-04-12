@@ -22,7 +22,7 @@ The angle between local horizontal plane and the plane passing through earth sta
 
 The formula for Azimuth angle (α) is
 
-α=180+aTan(Tan(G)/Tan(L))
+
 ![Description](https://github.com/MRK4863/LTTS_project/blob/main/1_Requirements/azimuth_formula.jpg)
 
 Where,
@@ -31,6 +31,7 @@ Where,
 
 *    G is the difference between position of satellite orbit and earth station antenna.
 ![Description](https://github.com/MRK4863/LTTS_project/blob/main/1_Requirements/azimuth_angle.png)
+
 Measure the horizontal angle at earth station antenna to north pole as shown in figure. It represents azimuth angle. It is used to track the satellite horizontally.
 ### Elevation Angle
 
@@ -43,6 +44,7 @@ The formula for Elevation angle (β) is
 We can calculate the elevation angle by using above formula. The following figure illustrates the elevation angle.
 
 The following figure illustrates the azimuth angle.
+
 ![Description](https://github.com/MRK4863/LTTS_project/blob/main/1_Requirements/elevation_angle.png)
 
 ## Cost and Features with Time 
