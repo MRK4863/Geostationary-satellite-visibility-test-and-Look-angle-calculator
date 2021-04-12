@@ -11,6 +11,7 @@ Folder             | Description
 
 |Build|Unit Test|cppcheck|Valgrind|Codacy|
 |:--:|:--:|:--:|:--:|:--:|
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/52653203f4e946f8a50023056a45c46e)](https://app.codacy.com/gh/MRK4863/LTTS_project?utm_source=github.com&utm_medium=referral&utm_content=MRK4863/LTTS_project&utm_campaign=Badge_Grade_Settings)
 |[![C/C++ CI](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml)|not issued|[![Code Quality - Static Code - Cppcheck](https://github.com/MRK4863/LTTS_project/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/MRK4863/LTTS_project/actions/workflows/cppcheck.yml)|
 ## Contributors List and Summary
 
