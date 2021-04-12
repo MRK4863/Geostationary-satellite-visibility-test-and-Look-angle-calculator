@@ -9,6 +9,9 @@ Folder             | Description
 `3_Implementation` | All code and documentation
 `4_Test_plan`      | Documents with test plans and procedures
 
+|Build|Unit Test|cppcheck|Valgrind|Codacy|
+|:--:|:--:|:--:|:--:|:--:|
+|[![C/C++ CI](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/MRK4863/LTTS_project/actions/workflows/c-cpp.yml)|
 ## Contributors List and Summary
 
 SF Id.  |  Name            |    Features     | 

@@ -1,3 +1,5 @@
+
+#all changes made
 PROJ_NAME = project_main.exe
 SRC = project_main.c
 
