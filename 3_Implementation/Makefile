@@ -8,7 +8,7 @@ CXXFLAGS = -std=c99 -Wall
 LDFLAGS = 
 
 # Makefile settings - Can be customized.
-APPNAME = Look_angle_calculator
+APPNAME = project_main
 EXT = .c
 SRCDIR = C:\Users\karuvi\Documents\LTTS_mini_project\LTTS_project\3_implementation
 OBJDIR = obj

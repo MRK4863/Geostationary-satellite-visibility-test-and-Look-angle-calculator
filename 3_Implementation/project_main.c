@@ -1,13 +1,26 @@
 
-
-//This is the first line of comments
-// it works
-// third line comments
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
 
 #define pi 3.142
+
+struct node
+{
+    char sat_name[30];
+    float sat_lat;
+    struct node *next;
+};
+
+void display(struct node *n)
+{
+    printf("SATELLITE_NAME\tLATITUDE");
+    while(n!=NULL)
+    {
+        printf("%10s\t%f", n->sat_name, n->sat_lat);
+        n = n->next;
+    }
+}
 
 float deg_to_rad(float deg)
 {
@@ -70,20 +83,16 @@ int visibility_test(float gamma)
         return 0;
 }
 
-char * read_database()
-{
-
-}
 
 void main()
 {
     float e_lat, e_long, s_lat, s_long, s_alt=35786, rs=6374, re,gamma, dist, elevation, azimuth;
     char e_lat_dirn, c;
-    
-    printf("\nEnter the LAT of EARTH_STATION : ");
-    scanf("%f", &e_lat);
     printf("\nEnter the Hemisphere of the EARTH_STATION (N/S): ");
     scanf("%c", &c);
+    printf("\nEnter the LAT of EARTH_STATION : ");
+    scanf("%f", &e_lat);
+    
 
     e_lat_dirn = (c);
 
@@ -114,4 +123,5 @@ void main()
     }
     else
         printf("\nSatellite NOT within visible region");
+
 }
