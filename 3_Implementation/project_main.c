@@ -2,22 +2,24 @@
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
+#include<stdlib.h>
+
 
 #define pi 3.142
 
-struct node
+struct Node
 {
-    char sat_name[30];
-    float sat_lat;
-    struct node *next;
+        char sat_name[100];
+        float sat_long;
+        struct Node *next;
 };
 
-void display(struct node *n)
+void display(struct Node *n)
 {
-    printf("SATELLITE_NAME\tLATITUDE");
+    printf("SATELLITE_NAME\t\tLATITUDE");
     while(n!=NULL)
     {
-        printf("%10s\t%f", n->sat_name, n->sat_lat);
+        printf("%10s\t%f", n->sat_name, n->sat_long);
         n = n->next;
     }
 }
@@ -83,6 +85,79 @@ int visibility_test(float gamma)
         return 0;
 }
 
+struct Node* read_database()
+{
+    FILE * fp;
+    char * line = NULL;
+    size_t len = 0;
+    size_t read;
+    char  s_name[100], lat[100], temp[100];
+    int flag, loc, i;
+    fp = fopen("database.txt", "r");
+    if (fp == NULL)
+        exit(EXIT_FAILURE);
+
+        struct Node *head_return=NULL;
+        struct Node *head=NULL;
+
+    char *file_contents = malloc(1000*sizeof(char));
+    while (fscanf(fp, "%[^\n] ", file_contents) != EOF)
+    {
+        printf("\n%s", file_contents);
+        strcpy(temp, file_contents);
+        printf("\n%c", temp);
+        //printf("\n%d", strlen(temp));
+
+        for(i=0;i<strlen(temp);i++)
+        {
+                if(temp[i]==' ')
+                {
+                        loc = i;
+                }   
+        }
+        for(i=0;i<strlen(temp);i++)
+        {
+                if(i<loc)
+                {
+                        s_name[i]=temp[i];
+                }
+                if(i>loc)
+                {
+                        lat[i-loc-1] =  temp[i];
+                }  
+                if(i==loc)
+                {
+                        s_name[i]='\0';
+                }
+                if(i==(strlen(temp)-1))
+                {
+                        lat[strlen(temp)-loc-1]='\0';
+                }
+        }
+
+        printf("\nspace_location : %d", loc);
+        printf("\nsat_name extracted : %s", s_name);
+        printf("\nlongitude extracted : %s", lat);
+
+        struct Node *t;
+        t = (struct Node*)malloc(sizeof(struct Node));
+        t->next=head;
+        strcpy(t->sat_name, s_name);
+        t->sat_long = atof(lat);
+        head = t;
+    }
+    
+    fclose(fp);
+    return head;
+    printf("\nprinting from linked list\n");
+    /*while(head!=NULL)
+    {
+            printf("%s\t\t%f",head->sat_name, head->sat_long);
+            printf("\n");
+            head = head->next;
+    }*/
+
+}
 
 void main()
 {
@@ -90,38 +165,43 @@ void main()
     char e_lat_dirn, c;
     printf("\nEnter the Hemisphere of the EARTH_STATION (N/S): ");
     scanf("%c", &c);
+    e_lat_dirn = (c);
+
     printf("\nEnter the LAT of EARTH_STATION : ");
     scanf("%f", &e_lat);
     
-
-    e_lat_dirn = (c);
-
     printf("\nEnter the LONG of EARTH_STATION (if west, enter the angle in negative): ");
     scanf("%f", &e_long);
 
-    printf("\nEnter the LONG of SATELLITE (if west, enter the angle in negative): ");
-    scanf("%f", &s_long);
-    
-    e_lat = deg_to_rad(e_lat);
-    s_long = deg_to_rad(s_long);
-    e_long = deg_to_rad(e_long); 
-    
-    gamma = (acos((cos(e_lat)*cos(e_long-s_long))));
-    rs=re+s_alt;
-    
-    dist = sqrt(pow(rs,2)+pow(re,2)-2*re*rs*cos(gamma));
-    
-    printf("\n Visibility test : ");
-    if(visibility_test(gamma))
+    struct Node* h;
+    h = read_database();
+    while(h!=NULL)
     {
-        printf("\nSATELLITE IS VISIBLE FROM THE EARTH_STAION");
-        elevation = elevation_calc(dist, rs, gamma);
-        azimuth = azimuth_calc(s_long, e_long, e_lat, 'N');
-        printf("\nelevation = %f degrees (from the horizon)", elevation);
-        printf("\nazimuth = %f degrees (clockwise from true-north)", azimuth);
-        //printf("\ngamma = %f degrees", (rad_to_deg(gamma)));
-    }
-    else
-        printf("\nSatellite NOT within visible region");
+        s_long = h->sat_long;
+        e_lat = deg_to_rad(e_lat);
+        s_long = deg_to_rad(s_long);
+        e_long = deg_to_rad(e_long); 
+        
+        gamma = (acos((cos(e_lat)*cos(e_long-s_long))));
+        rs=re+s_alt;
+        
+        dist = sqrt(pow(rs,2)+pow(re,2)-2*re*rs*cos(gamma));
+        
+        printf("\n\n\nSATELLITE %s IS BIENG PROCESSED............",h->sat_name);
+        printf("\n Visibility test : ");
+        if(visibility_test(gamma))
+        {
+            printf("\nSATELLITE IS VISIBLE FROM THE EARTH_STAION");
+            elevation = elevation_calc(dist, rs, gamma);
+            azimuth = azimuth_calc(s_long, e_long, e_lat, 'N');
+            printf("\nelevation = %f degrees (from the horizon)", elevation);
+            printf("\nazimuth = %f degrees (clockwise from true-north)", azimuth);
+            //printf("\ngamma = %f degrees", (rad_to_deg(gamma)));
+        }
+        else
+            printf("\nSatellite NOT within visible region");
 
+        h = h->next;
+    }
+    
 }
