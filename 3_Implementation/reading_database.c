@@ -88,9 +88,5 @@ void main()
         struct Node* h;
         h = read_database();
         
-        /*char s[]="-100.0";
-        float t;
-        t=atof(s);
-        printf("%f", t);*/
 
 }
