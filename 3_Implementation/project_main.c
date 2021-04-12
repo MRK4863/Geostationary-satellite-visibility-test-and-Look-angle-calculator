@@ -138,7 +138,7 @@ struct Node* read_database()
         //printf("\nspace_location : %d", loc);
         //printf("\nsat_name extracted : %s", s_name);
         //printf("\nlongitude extracted : %s", lat);
-
+        //
         struct Node *t;
         t = (struct Node*)malloc(sizeof(struct Node));
         t->next=head;
