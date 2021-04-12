@@ -137,10 +137,10 @@ struct Node* read_database()
 {
     FILE * fp;
     char * line = NULL;
-    size_t len = 0;
-    size_t read;
+    //size_t len = 0;
+    //size_t read;
     char  s_name[100], lat[100], temp[100];
-    int flag, loc, i;
+    int loc, i;
     fp = fopen("database.txt", "r");
     if (fp == NULL)
         exit(EXIT_FAILURE);
@@ -149,7 +149,7 @@ struct Node* read_database()
         struct Node *head=NULL;
 
     char *file_contents = malloc(1000*sizeof(char));
-    while (fscanf(fp, "%[^\n] ", file_contents) != EOF)
+    while (fscanf(fp, "%30[^\n] ", file_contents) != EOF)
     {
         //printf("\n%s", file_contents);
         strcpy(temp, file_contents);
@@ -197,7 +197,7 @@ struct Node* read_database()
     
     fclose(fp);
     return head;
-    printf("\nprinting from linked list\n");
+    //printf("\nprinting from linked list\n");
     /*while(head!=NULL)
     {
             printf("%s\t\t%f",head->sat_name, head->sat_long);
@@ -213,11 +213,10 @@ struct Node* read_database()
  */
 void main()
 {
-    float e_lat, e_long, s_lat, s_long, s_alt=35786, rs=6374, re,gamma, dist, elevation, azimuth;
-    char e_lat_dirn, c;
+    float e_lat, e_long,  re=6374, rs=42160, elevation, azimuth;
+    char e_lat_dirn;
     printf("\nEnter the Hemisphere of the EARTH_STATION (N/S): ");
-    scanf("%c", &c);
-    e_lat_dirn = toupper(c);
+    scanf("%c", &e_lat_dirn);
 
     printf("\nEnter the LAT of EARTH_STATION : ");
     scanf("%f", &e_lat);
@@ -229,13 +228,14 @@ void main()
     h = read_database();
     while(h!=NULL)
     {
+       
+        float gamma, dist, s_long;
         s_long = h->sat_long;
         e_lat = deg_to_rad(e_lat);
         s_long = deg_to_rad(s_long);
         e_long = deg_to_rad(e_long); 
         
         gamma = (acos((cos(e_lat)*cos(e_long-s_long))));
-        rs=re+s_alt;
         
         dist = sqrt(pow(rs,2)+pow(re,2)-2*re*rs*cos(gamma));
         
