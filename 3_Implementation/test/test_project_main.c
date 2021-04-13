@@ -1,7 +1,8 @@
 #include "unity.h"
 
+
 /* Modify these two lines according to the project */
-#include <calc_operations.h>
+#include "../inc/calc_operations.h"
 #define PROJECT_NAME "Calculator"
 
 /* Prototypes for all the test functions */
