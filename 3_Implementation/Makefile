@@ -1,8 +1,10 @@
-PROJ_NAME = project_main.exe
-SRC = project_main.c
+PROJ_NAME = project_main
+SRC = project_main.c\
+test_calc_operations.c
 
-$(PROJ_NAME): $(SRC)
-	gcc $(SRC) -o project_main.exe
+INC =unity
+TEST = unity/unity.c
 
-run: $(PROJ_NAME)
-	$(PROJ_NAME)
+$(PROJ_NAME): $(SRC) $(TEST)
+	gcc -I $(INC) $(SRC) $(TEST) -o $(PROJ_NAME)
+
