@@ -1,15 +1,15 @@
 #include "unity.h"
-#include <calc_operations.h>
 
 /* Modify these two lines according to the project */
-#include <calc_operations.h>
-#define PROJECT_NAME    "Calculator"
+#include "calc_operations.h"
+#define PROJECT_NAME "Calculator"
 
 /* Prototypes for all the test functions */
-void test_add(void);
-void test_subtract(void);
-void test_multiply(void);
-void test_divide(void);
+void test_deg_to_rad(void);
+void test_rad_to_deg(void);
+void test_elevation_calc(void);
+void test_azimuth_calc(void);
+void test_visibility_test(void);
 
 /* Required by the unity test framework */
 void setUp(){}
@@ -23,40 +23,43 @@ int main()
   UNITY_BEGIN();
 
 /* Run Test functions */
-  RUN_TEST(test_add);
-  RUN_TEST(test_subtract);
-  RUN_TEST(test_multiply);
-  RUN_TEST(test_divide);
+  RUN_TEST(test_deg_to_rad);
+  RUN_TEST(test_rad_to_deg);
+  RUN_TEST(test_elevation_calc);
+  RUN_TEST(test_azimuth_calc);
+  RUN_TEST(test_visibility_test);
 
   /* Close the Unity Test Framework */
   return UNITY_END();
 }
 
 /* Write all the test functions */ 
-void test_add(void) {
-  TEST_ASSERT_EQUAL(30, add(10, 20));
+void test_deg_to_rad(void)
+{
+    TEST_ASSERT_EQUAL(3.142, deg_to_rad(180));
   
   /* Dummy fail*/
-  TEST_ASSERT_EQUAL(15000, add(7500, 7500));
+    TEST_ASSERT_EQUAL(1.571, deg_to_rad(90));
+}
+void test_rad_to_deg(void)
+{
+    TEST_ASSERT_EQUAL(180.0, rad_to_deg(3.142));
+  
+  /* Dummy fail*/
+    TEST_ASSERT_EQUAL(90.0, rad_to_deg(1.571));
 }
 
-void test_subtract(void) {
-  TEST_ASSERT_EQUAL(-3, subtract(0, 3));
-  
-  /* Dummy fail*/
-  TEST_ASSERT_EQUAL(100, subtract(1000, 900));
+void test_elevation_calc(void)
+{
+    TEST_ASSERT_EQUAL(15.612381, elevation_calc(39994.546875, 42160, 66));
 }
 
-void test_multiply(void) {
-  TEST_ASSERT_EQUAL(0, multiply(1, 0));
-  
-  /* Dummy fail*/
-  TEST_ASSERT_EQUAL(10, multiply(2, 5));
+void test_azimuth_calc(void)
+{
+    TEST_ASSERT_EQUAL(90.011665, azimuth_calc(66,0,52,'N'));
 }
 
-void test_divide(void) {
-  TEST_ASSERT_EQUAL(0, divide(1, 0));
-  
-  /* Dummy fail*/
-  TEST_ASSERT_EQUAL(1, divide(2, 2));
+void test_visibility_test(void)
+{
+    TEST_ASSERT_EQUAL(1, visibility_test(1.15192));
 }

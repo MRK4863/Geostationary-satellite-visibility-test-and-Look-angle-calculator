@@ -1,9 +1,4 @@
-
-#include<stdio.h>
-#include<math.h>
-#include<string.h>
-#include<stdlib.h>
-
+#include "calc_operations.h"
 
 #define pi 3.142
 /**
@@ -246,10 +241,11 @@ void main()
             printf("\nSatellite %s is VISIBLE from THE EARTH_STAION", h->sat_name);
             elevation = elevation_calc(dist, rs, gamma);
             azimuth = azimuth_calc(s_long, e_long, e_lat, 'N');
+            printf("\nDistance from satellite to Earth_station: %f", dist);
             printf("\nThe following are the parameters required by the EARTH_STAION antennae : ");
             printf("\n\televation = %f degrees (from the horizon)", elevation);
             printf("\n\tazimuth = %f degrees (clockwise from true-north)\n", azimuth);
-            //printf("\ngamma = %f degrees", (rad_to_deg(gamma)));
+            printf("\ngamma = %f degrees", (rad_to_deg(gamma)));
         }
         else
             printf("\nSatellite %s NOT VISIBLE from the EARTH_STATION\n", h->sat_name);
