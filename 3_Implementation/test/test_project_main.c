@@ -1,5 +1,8 @@
 #include "unity.h"
-
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+#include <stdlib.h>
 
 /* Modify these two lines according to the project */
 #include "../inc/calc_operations.h"
