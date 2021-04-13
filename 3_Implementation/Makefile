@@ -1,6 +1,6 @@
 PROJ_NAME = project_main
 SRC = project_main.c\
-test_project_main.c
+test/test_project_main.c
 
 INC =unity
 TEST = unity/unity.c
