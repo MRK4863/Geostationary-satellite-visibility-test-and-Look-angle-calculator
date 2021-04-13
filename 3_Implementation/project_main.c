@@ -1,4 +1,4 @@
-#include "calc_operations.h"
+#include "inc/calc_operations.h"
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
