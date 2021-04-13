@@ -1,4 +1,8 @@
 #include "calc_operations.h"
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+#include <stdlib.h>
 
 #define pi 3.142
 /**
